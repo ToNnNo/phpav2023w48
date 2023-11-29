@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Client</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="pt-5">
+            <h1>Formulaire Client</h1>
+            <hr />
+        </header>
+        <main>
+            <form method="post" action="">
+                <div class="mb-3">
+                    <label>Nom</label>
+                    <input type="text" class="form-control <?php echo $form->hasError('lastname') ? 'is-invalid': '' ?>" 
+                        name="lastname" value="<?php echo $form->getData('lastname') ?>" />
+
+                    <?php if( $form->hasError('lastname') ): ?>
+                    <div class="invalid-feedback">
+                    <?php foreach( $form->getErrors('lastname') as $error ){
+                        echo $error. '<br />';
+                    } ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <div class="mb-3">
+                    <label>Prénom</label>
+                    <input type="text" class="form-control <?php echo $form->hasError('firstname') ? 'is-invalid': '' ?>" 
+                        name="firstname" value="<?php echo $form->getData('firstname') ?>" />
+                    <?php if( $form->hasError('firstname') ): ?>
+                    <div class="invalid-feedback">
+                    <?php foreach( $form->getErrors('firstname') as $error ){
+                        echo $error. '<br />';
+                    } ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" 
+                        value="<?php echo $form->getData('email') ?>" />
+                </div>
+                <div class="mb-3">
+                    <label>Téléphone</label>
+                    <input type="text" class="form-control" name="phone" 
+                        value="<?php echo $form->getData('phone') ?>" />
+                </div>
+                <div class="mb-3">
+                    <label>Date de naissance</label>
+                    <input type="date" class="form-control" name="birthday" 
+                        value="<?php echo $form->getData('birthday') ?>" />
+                </div>
+                <button class="btn btn-outline-primary">Enregistrer</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

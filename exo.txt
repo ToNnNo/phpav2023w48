@@ -1,0 +1,23 @@
+Créer une classe NotBlank dans src/Contraint
+ - attribut message (correspond au message d'erreur)
+ - method validate($value):bool qui permet de tester si la valeur n'est pas vide
+ - method getMessage(): string
+
+validate 
+    - retourne true si la valeur n'est vide
+    - retourne false si la valeur est vide
+
+
+Créer une classe Validator dans src/Validator
+ - attribut errors (array)
+ - method validate(objet à valider, tableau contraintes)
+    - la method validate doit retourner un tableau d'erreur
+
+créer à partir du nom d'un attribut la method get qui permet de
+récupérer le nom de l'accesseur (getter)
+
+ex: street => get . ucfirst(street)  => getStreet
+
+$value = call_user_func_array([$object, $method], []);
+
+$value = $object->getStreet();

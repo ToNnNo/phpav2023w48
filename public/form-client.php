@@ -1,10 +1,9 @@
 <?php
+use App\Validator\Validator;
 require_once dirname(__DIR__) . "/vendor/autoload.php";
 
 use App\Company\Customer;
-use App\Form\Constraints\NotBlank;
-use App\Form\Form;
-use App\Form\Transformer\DateTimeTransformer;
+use App\Constraint\NotBlank;
 
 // vérifier que le formulaire a bien été soumis
 
@@ -13,21 +12,6 @@ use App\Form\Transformer\DateTimeTransformer;
 // $_POST['..'] ?? null
 
 // vérifier la validité des valeurs (contrainte)
-
-/*$customer = new Customer();
-$form = new Form($customer, [
-    "firstname" => [new NotBlank()],
-    "lastname" => [new NotBlank()]
-]);
-$form->handleRequest(['birthday' => DateTimeTransformer::class]);
-
-if ($form->isSubmitted() && $form->isValid()) {
-    echo "<pre>";
-    var_dump($customer);
-    echo "</pre>";
-}
-
-require dirname(__DIR__) . "/template/client/formulaire.phtml";*/
 
 /**
  * $errors = [
@@ -53,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         ->setPhone(trim($_POST['phone']) ?? null)
         ->setBirthday(!empty($_POST['birthday']) ? new \DateTime(trim($_POST['birthday'])) : null);
 
-    if(empty($client->getFirstname())) {
+    /*if(empty($client->getFirstname())) {
         $errors['firstname'][] = 'Cette valeur ne peut pas être vide';
     }
 
@@ -63,7 +47,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if(empty($client->getLastname())) {
         $errors['lastname'][] = 'Cette valeur ne peut pas être vide';
-    }
+    }*/
+
+    $validations = [
+        'firstname' => [new NotBlank()],
+        'lastname' => [new NotBlank()]
+    ];
+
+    $validator = new Validator();
+    $errors = $validator->validate($client, $validations);
 }
 
 require dirname(__DIR__) . "/template/client/edit.phtml";

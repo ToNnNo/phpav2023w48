@@ -4,17 +4,17 @@ namespace App\Company;
 
 class Address
 {
-    private string $street;
+    private ?string $street = null;
 
-    private string $city;
+    private ?string $city = null;
 
-    private string $zipCode;
+    private ?string $zipCode = null;
 
     private ?string $state = null;
 
     private ?string $country = null;
 
-    public function getStreet(): string
+    public function getStreet(): ?string
     {
         return $this->street;
     }
@@ -25,7 +25,7 @@ class Address
         return $this;
     }
 
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -36,7 +36,7 @@ class Address
         return $this;
     }
 
-    public function getZipCode(): string
+    public function getZipCode(): ?string
     {
         return $this->zipCode;
     }

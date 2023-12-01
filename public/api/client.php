@@ -46,6 +46,16 @@ function insertClient(): string {
         return json_encode(['error' => ['lastname' => "Cette valeur ne peut pas être vide"]]);
     }
 
+    /*$data = array_merge(['email' => null, 'phone' => null], $data);
+
+    $pdo = new PDO('mysql://host=127.0.0.1:3306;dbname=phpav2023w48', "root", "root");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+
+    $sql = "INSERT INTO client (`firstname`, `lastname`, `email`, `phone`) VALUE (:firstname, :lastname, :email, :phone)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($data);
+    $id = $pdo->lastInsertId();*/
+
     $data = array_merge(["id" => 4], $data);
 
     http_response_code(201);

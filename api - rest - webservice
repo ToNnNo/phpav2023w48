@@ -1,0 +1,38 @@
+Web Service
+-----------
+
+Application qui permet d'échanger des données avec une ou plusieurs autres applications.
+-> pour permettre l'échanger des données, elles doivent être normées (json/xml)
+
+-> SOAP --> on appelle une fonction --> réponse au format xml
+-> REST --> on appelle à url --> réponse au format json/xml/json+ld
+
+API
+---
+
+Application Programming Interface (interface de programmation d'application)
+
+
+API Rest
+--------
+
+Modèle de Richardson
+
+3 - Exposer les ressources (liens) exploitable par l'api (hydra + openAPI - swagger)
+2 - On utilise les VERB HTTP pour définir l'action sur une ressource / exploite les status HTTP 
+1 - Pour 1 ressource (client, article, etc), il faut 1 seul url (client => /clients)
+0 - Communication XML (au travers HTTP)
+
+Exemple
+-------
+Manipuler un client
+    SOAP 
+     - createClient.php
+     - detailClient.php
+     - listeClient.php
+
+    REST
+     - (créer)  /clients        - POST  - 201 / 400
+     - (detail) /clients/{id}   - GET   - 200 / 404
+     - (liste)  /clients        - GET   - 200
+ 

@@ -20,3 +20,16 @@ Status Response
 300 - Redirection
 400 - Client Error
 500 - Server Error
+
+VERB
+----
+
+GET     -> lire une ressource
+POST    -> ajoute une ressource
+PUT     -> modifie totalement une ressource 
+PATCH   -> modifie partiellement une ressource 
+DELETE  -> supprime une ressource
+HEAD    -> interroger l'existance une ressource
+OPTIONS -> savoir quels VERB peuvent être utilisé
+CONNECT -> établir connexion vers le serveur
+TRACE   -> tracer une connexion

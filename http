@@ -1,0 +1,22 @@
+HyperText Tranfer Protocol (Secure)
+
+Request
+-------
+
+Method Path Protocol
+HTTP Request Headers
+
+Response
+--------
+
+Protocol Status Message
+HTTP Response Headers
+
+Status Response
+---------------
+
+100 - Information
+200 - Success
+300 - Redirection
+400 - Client Error
+500 - Server Error

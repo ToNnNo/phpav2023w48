@@ -1,0 +1,33 @@
+Route
+-----
+
+Chemin qui nous permet d'accéder à une information
+
+https://www.stephane.sensei/http/info
+https://www.stephane.sensei/index.php/http/info
+
+Pour cette url, le chemin c'est "/http/info"
+
+http://localhost:8000/client.php
+
+Pour cette url, le chemin c'est "client.php"
+
+MVC
+---
+
+Organisation fichier
+
+Model       -> La représentation Objet (POO) d'une table de la base de données (Doctrine -> Entité)    
+View        -> Se charge structurer (faire le rendu) les valeurs pour les afficher    
+Controller  -> Médiateur qui permet de répartir la logique pour construire une réponse
+    -> demander de récupérer (ou d'inserer/modifier) les données 
+        - depuis une base de données,
+        - sur un web service, 
+        - d'un formulaire
+        - autre
+    -> traitement sur les données: modification des valeurs initiales
+        - valider les données
+        - mettre en majuscule
+        - faire des calculs
+    -> demander à construire la vue
+        - créer le rendu en html, xml ou json
